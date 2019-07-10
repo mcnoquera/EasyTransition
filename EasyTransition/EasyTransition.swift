@@ -52,7 +52,7 @@ open class EasyTransition: UIPercentDrivenInteractiveTransition {
     
     open var zTransitionSize: CGFloat?
     
-    open var blurEffectStyle: UIBlurEffectStyle?
+    open var blurEffectStyle: UIBlurEffect.Style?
     
     fileprivate var attachedViewController = UIViewController()
     
@@ -227,7 +227,7 @@ extension EasyTransition : UIViewControllerTransitioningDelegate ,UIViewControll
                 completion: completion)
         }else{
             UIView.animate(withDuration: transitionDuration(using: transitionContext), delay:0, usingSpringWithDamping:500.0, initialSpringVelocity:2,
-                options:UIViewAnimationOptions.allowUserInteraction,
+                           options:UIView.AnimationOptions.allowUserInteraction,
                 animations:animations,
                 completion:completion)
             
@@ -251,7 +251,7 @@ internal class PresentationController: UIPresentationController, UIAdaptivePrese
     
     var zTransitionSize: CGFloat?
     
-    var blurEffectStyle: UIBlurEffectStyle?
+    var blurEffectStyle: UIBlurEffect.Style?
     
     fileprivate var installedConstraint: [NSLayoutConstraint]?
     
@@ -270,7 +270,7 @@ internal class PresentationController: UIPresentationController, UIAdaptivePrese
     var enableDismissTouchOutBound:Bool = true
     
     @objc func dimmingViewTapped(_ gesture: UIGestureRecognizer) {
-        if gesture.state == UIGestureRecognizerState.ended  && enableDismissTouchOutBound {
+        if gesture.state == UIGestureRecognizer.State.ended  && enableDismissTouchOutBound {
             presentingViewController.dismiss(animated: true, completion: nil)
         }
     }

@@ -53,8 +53,8 @@ class ViewController: UIViewController {
             self.backgroundImage.image = $0
             let transition = CATransition()
             transition.duration = 0.2
-            transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-            transition.type = kCATransitionFade
+            transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+            transition.type = CATransitionType.fade
             self.backgroundImage.layer.add(transition, forKey: nil)
         }
         
